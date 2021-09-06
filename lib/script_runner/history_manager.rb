@@ -16,7 +16,9 @@ module ScriptRunner
     end
 
     def write_history_file
-      File.open(script_history_file_path, "w") { |f| f.write JSON.pretty_generate(history_file) }
+      File.open(script_history_file_path, "w") do |f|
+        f.write JSON.pretty_generate(history_file)
+      end
     end
 
     def history_file
