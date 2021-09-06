@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-
-require "script_runner"
-ScriptRunner::CLI.new.call
