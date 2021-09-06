@@ -1,8 +1,8 @@
-require_relative "lib/script/runner/version"
+require_relative "lib/script_runner/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "script-runner"
-  spec.version = Script::Runner::VERSION
+  spec.name = "script_runner"
+  spec.version = ScriptRunner::VERSION
   spec.authors = ["Hernan D'Amico"]
   spec.email = ["hernan.damico67@gmail.com"]
 

@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-
-require "script/runner"
-Script::Runner::CLI.new.call(ARGV)
