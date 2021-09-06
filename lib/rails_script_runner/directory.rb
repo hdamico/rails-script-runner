@@ -1,4 +1,4 @@
-module ScriptRunner
+module RailsScriptRunner
   module Directory
     private
 

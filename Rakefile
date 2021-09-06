@@ -16,7 +16,7 @@ task default: %i[test rubocop]
 
 Rake::Task["release"].enhance do
   puts "Don't forget to publish the release on GitHub!"
-  system "open https://github.com/hdamico/script-runner/releases"
+  system "open https://github.com/hdamico/rails-script-runner/releases"
 end
 
 task :disable_overcommit do
@@ -27,13 +27,13 @@ Rake::Task[:build].enhance [:disable_overcommit]
 
 task :verify_gemspec_files do
   git_files = `git ls-files -z`.split("\x0")
-  gemspec_files = Gem::Specification.load("script_runner.gemspec").files.sort
+  gemspec_files = Gem::Specification.load("rails_script_runner.gemspec").files.sort
   ignored_by_git = gemspec_files - git_files
   next if ignored_by_git.empty?
 
   raise <<~ERROR
 
-    The `spec.files` specified in script_runner.gemspec include the following files
+    The `spec.files` specified in rails_script_runner.gemspec include the following files
     that are being ignored by git. Did you forget to add them to the repo? If
     not, you may need to delete these files or modify the gemspec to ensure
     that they are not included in the gem by mistake:
@@ -62,7 +62,7 @@ namespace :bump do
     latest = RubyVersions.latest
     latest_patches = RubyVersions.latest_supported_patches
 
-    replace_in_file "script_runner.gemspec", /ruby_version = .*">= (.*)"/ => lowest
+    replace_in_file "rails_script_runner.gemspec", /ruby_version = .*">= (.*)"/ => lowest
     replace_in_file ".rubocop.yml", /TargetRubyVersion: (.*)/ => lowest_minor
     replace_in_file ".circleci/config.yml", /default: "([\d.]+)"/ => latest
     replace_in_file ".circleci/config.yml", /version: (\[.+\])/ => latest_patches.inspect

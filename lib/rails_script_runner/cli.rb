@@ -1,4 +1,4 @@
-module ScriptRunner
+module RailsScriptRunner
   class CLI
     include Directory
     include HistoryManager
@@ -18,7 +18,7 @@ module ScriptRunner
     end
 
     def run_pending_scripts
-      ::ScriptRunner::Release.descendants.each(&:run)
+      ::RailsScriptRunner::Release.descendants.each(&:run)
     end
 
     def pending_files

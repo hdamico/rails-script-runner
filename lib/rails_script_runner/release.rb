@@ -1,4 +1,4 @@
-module ScriptRunner
+module RailsScriptRunner
   class Release
     def self.run
       new.run

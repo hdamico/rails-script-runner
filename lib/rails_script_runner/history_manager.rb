@@ -1,4 +1,4 @@
-module ScriptRunner
+module RailsScriptRunner
   module HistoryManager
     def executed_scripts
       history_file["executed_scripts"]

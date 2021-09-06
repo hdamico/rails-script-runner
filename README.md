@@ -1,4 +1,4 @@
-# script-runner
+# rails-script-runner
 
 ## License
 
