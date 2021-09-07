@@ -1,5 +1,5 @@
 module RailsScriptRunner
-  class Release
+  class Executor
     def self.run
       new.run
     end

@@ -3,7 +3,7 @@ module RailsScriptRunner
     include Directory
     include HistoryManager
 
-    def call
+    def execute_scripts
       require_pending_files
       run_pending_scripts
       add_new_records
@@ -18,7 +18,7 @@ module RailsScriptRunner
     end
 
     def run_pending_scripts
-      ::RailsScriptRunner::Release.descendants.each(&:run)
+      ::RailsScriptRunner::Executor.descendants.each(&:run)
     end
 
     def pending_files
