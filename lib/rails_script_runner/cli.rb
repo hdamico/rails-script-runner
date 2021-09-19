@@ -2,11 +2,16 @@ module RailsScriptRunner
   class CLI
     include Directory
     include HistoryManager
+    include Template
 
     def execute_scripts
       require_pending_files
       run_pending_scripts
       add_new_records
+    end
+
+    def create_new_script(filename)
+      generate_script(filename)
     end
 
     private
