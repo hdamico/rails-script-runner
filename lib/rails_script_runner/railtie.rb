@@ -7,7 +7,7 @@ module RailsScriptRunner
 
     rake_tasks do
       path = File.expand_path(__dir__)
-      load "#{path}/tasks/rails_script_runner/execute.rake"
+      Dir.glob("#{path}/tasks/**/*.rake").each { |f| load f }
     end
   end
 end

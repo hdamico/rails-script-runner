@@ -10,6 +10,9 @@ module RailsScriptRunner
 
     private
 
+    HISTORY_FILENAME = "scripts_history.json".freeze
+    HISTORY_CONTENT = '{ "executed_scripts": [] }'.freeze
+
     def add_new_records
       executed_scripts.concat pending_files
       write_history_file
@@ -26,7 +29,10 @@ module RailsScriptRunner
     end
 
     def find_or_create_history_file
-      create_history_file unless history_file_exists?
+      unless history_file_exists?
+        create_scripts_dir unless main_directory_exists?
+        create_file(HISTORY_FILENAME, HISTORY_CONTENT)
+      end
       JSON.parse(read_history_file)
     end
 

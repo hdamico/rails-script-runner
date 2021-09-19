@@ -22,10 +22,8 @@ module RailsScriptRunner
       Dir["#{main_directory}/*"]
     end
 
-    def create_history_file
-      create_scripts_dir unless main_directory_exists?
-      body = '{ "executed_scripts": [] }'
-      File.write("#{main_directory}/scripts_history.json", body)
+    def create_file(filename, content)
+      File.write("#{main_directory}/#{filename}", content)
     end
 
     def create_scripts_dir
